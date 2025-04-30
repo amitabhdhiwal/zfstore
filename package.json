@@ -1,6 +1,6 @@
 {
-  "name": "zustand-feathers",
-  "version": "1.0.0",
+  "name": "zfstore",
+  "version": "2.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -15,7 +15,7 @@
   ],
   "author": "Amitabh Dhiwal",
   "license": "MIT",
-  "description": "",
+  "description": "A tiny factory function to create a Zustand store with Feathers.js integration for API calls.",
   "peerDependencies": {
     "@feathersjs/feathers": "^5.0.33",
     "@feathersjs/rest-client": "^5.0.33",

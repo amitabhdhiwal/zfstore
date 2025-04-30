@@ -1,18 +1,18 @@
 
-# Zustand + Feathers Store Factory
+# Zustand + Feathers Store
 
 A tiny factory function to create a Zustand store with Feathers.js integration for API calls.
 
 ## Installation
 ```bash
-npm install zustand feathers axios zustand-feathers
+npm install zustand feathers axios zfstore
 ```
 
 ## Usage
 
 ```js
 //lib/stores.js
-import { storeFactory } from 'zustand-feathers';
+import { storeFactory } from 'zfstore';
 
 // Create store with default Feathers app and URL
 export const useApiStore = storeFactory();
