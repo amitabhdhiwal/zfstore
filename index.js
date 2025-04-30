@@ -8,7 +8,7 @@ import { create } from 'zustand';
  *
  * @param {object} app - A Feathers.js application instance.
  * @param {string} url - The base URL for the REST API.
- * @returns {function} - A function to create the store.
+ * @returns {function} - A zustand store
  */
 export function storeFactory(app, url) {
     // Check if app and url are provided or set defaults if not
