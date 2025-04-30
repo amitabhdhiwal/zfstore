@@ -1,7 +1,7 @@
 
 # Zustand + Feathers Store Factory
 
-A factory function to create a Zustand store with Feathers.js integration for API calls.
+A tiny factory function to create a Zustand store with Feathers.js integration for API calls.
 
 ## Installation
 ```bash
@@ -18,19 +18,27 @@ import { storeFactory } from 'zustand-feathers';
 export const useApiStore = storeFactory();
 
 // Or with custom configuration
-export const useCustomStore = storeFactory(myFeathersApp, 'https://api.example.com');
+import app from './app.js'
+export const useCustomStore = storeFactory(app, 'https://api.example.com'); //make sure CORS is enabled for third party APIs.
 ```
-In some react component:
+In your react component:
 ```js
 // components/MyComponent.jsx
 import { useApiStore } from './lib/stores.js';
 
 export default function MyComponent() {
-  const { loading, error, todos } = useApiStore();
+  //service name variable is automatically added.
+  const { loading, error, api, todos } = useApiStore();
   
-  const fetchData = async () => {
-    await useApiStore().api('todos', 'find', { query: { completed: false } });
+  const fetchData = () => {
+    //service name, service method, optional args as required by your feathers service API.
+    api('todos', 'find', { query: { completed: false } });
   };
+
+  useEffect(() => {
+    //no need to add async :')
+    api('todos', 'find', { query: { completed: false } });
+  }, [])
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -39,7 +47,7 @@ export default function MyComponent() {
     <div>
       <button onClick={fetchData}>Reload Todos</button>
       <ul>
-        {todos.map(todo => (
+        {todos?.data.map(todo => (
           <li key={todo.id}>{todo.text}</li>
         ))}
       </ul>
