@@ -6,8 +6,14 @@
   "scripts": {
     "test": "vitest run"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "zustand-feathers",
+    "zustand",
+    "feathers",
+    "zustand store",
+    "feathers client"
+  ],
+  "author": "Amitabh Dhiwal",
   "license": "MIT",
   "description": "",
   "peerDependencies": {
