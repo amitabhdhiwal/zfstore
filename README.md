@@ -33,6 +33,15 @@ export default function MyComponent() {
   const fetchData = () => {
     //service name, service method, optional args as required by your feathers service API.
     api('todos', 'find', { query: { completed: false } });
+    //or
+    //let id = 1;
+    //api('todos', 'get', 1);
+    
+    //let data = { title: "some todo" }
+    //api('todos', 'create', data);
+    //api('todos', 'update', id, {completed: true});
+    //api('todos', 'patch', id, {completed: true});
+    //api('todos', 'remove', id);
   };
 
   useEffect(() => {
